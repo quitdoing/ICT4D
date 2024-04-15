@@ -10,13 +10,9 @@ data = pd.read_excel('data.xlsx')
 def submit():
     # Get the phone number from request
     phone = request.args.get('caller_number')
-    print(phone)
 
     # Query the certifiate number from the Excel file
     result = data.loc[data['Phone'] == int(phone), 'Number'].tolist()
-
-    print(result)
-    print(type(result))
 
     # Check if the result list is empty
     if not result:
