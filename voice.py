@@ -6,7 +6,7 @@ app = Flask(__name__)
 # Load the Excel file into a Pandas DataFrame
 data = pd.read_excel('data.xlsx')
 
-@app.route('/submit', methods=['POST'])
+@app.route('/submit', methods=['GET'])
 def submit():
     # Get the phone number from request
     phone = request.args.get('caller_number')
