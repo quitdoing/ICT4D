@@ -5,32 +5,30 @@
    http://www.w3.org/TR/voicexml20/vxml.xsd"
    version="2.0">
   <form>
-    <!-- Prompt the caller to enter phone number -->
-    <block>
-      <prompt>
-        Please enter your phone number, followed by the pound key.
-      </prompt>
       <!-- Aquire the caller input -->
       <field name="caller_number" type="digits" maxtime="10s">
+        <!-- Prompt the caller to enter phone number -->
+        <prompt>
+        Please enter your phone number, followed by the pound key.
+        </prompt>
         <grammar mode="dtmf" scope="digits">
           <rule id="digits" scope="public">
             <!-- The input should be a combination of numbers and a # -->
             0-9 #  
           </rule>
         </grammar>
-        <!-- After caller input -->
-        <filled>
-          <!-- Submit the number to the server -->
-          <submit next="http://34.16.225.234/submit" namelist="caller_number" />
-        </filled>
-        <!-- No input from the caller -->
-        <noinput>
-          <prompt>
-            I'm sorry, I didn't hear anything. Please try again.
-          </prompt>
-          <reprompt />
-        </noinput>
+      <!-- After caller input -->
+      <filled>
+        <!-- Submit the number to the server -->
+        <submit next="http://34.16.225.234/submit" namelist="caller_number" />
+      </filled>
+      <!-- No input from the caller -->
+      <noinput>
+        <prompt>
+          I'm sorry, I didn't hear anything. Please try again.
+        </prompt>
+        <reprompt />
+      </noinput>
       </field>
-    </block>
   </form>
 </vxml>
