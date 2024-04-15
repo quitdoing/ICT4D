@@ -7,16 +7,16 @@
   <form>
       <!-- Aquire the caller input -->
       <field name="caller_number" type="digits" maxtime="10s">
-        <!-- Prompt the caller to enter phone number -->
-        <prompt>
-        Please enter your phone number, followed by the pound key.
-        </prompt>
         <grammar mode="dtmf" scope="digits">
           <rule id="digits" scope="public">
             <!-- The input should be a combination of numbers and a # -->
             0-9 #  
           </rule>
         </grammar>
+        <!-- Prompt the caller to enter phone number -->
+        <prompt>
+        Please enter your phone number, followed by the pound key.
+        </prompt>
       <!-- After caller input -->
       <filled>
         <!-- Submit the number to the server -->
