@@ -32,7 +32,7 @@ def submit():
      </form>
     </vxml>'''.format(result)
 
-    # 返回XML响应
+    # Return xml response
     return Response(xml_response, mimetype='text/xml')
 
 if __name__ == '__main__':
