@@ -40,4 +40,4 @@ def submit():
     return Response(xml_response, mimetype='text/xml')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0', port=80)

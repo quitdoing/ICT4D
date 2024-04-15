@@ -5,6 +5,25 @@
    http://www.w3.org/TR/voicexml20/vxml.xsd"
    version="2.0">
   <form>
-    <block>Hello World!</block>
+    <!-- Prompt the caller to enter phone number -->
+    <block>
+      <prompt>
+        Please enter your phone number, followed by the pound key.
+      </prompt>
+      <!-- Aquire the caller input -->
+      <field name="caller_number" type="digits">
+        <grammar mode="dtmf" scope="digits">
+          <rule id="digits" scope="public">
+            <!-- The input should be a combination of numbers and a # -->
+            0-9 #  
+          </rule>
+        </grammar>
+        <!-- After caller input -->
+        <filled>
+          <!-- Submit the number to the server -->
+          <submit next="http://34.16.225.234/submit" namelist="caller_number" />
+        </filled>
+      </field>
+    </block>
   </form>
 </vxml>
