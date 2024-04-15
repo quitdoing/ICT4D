@@ -9,7 +9,7 @@ data = pd.read_excel('data.xlsx')
 @app.route('/submit', methods=['POST'])
 def submit():
     # Get the phone number from request
-    phone = request.form.get('caller_number')
+    phone = request.args.get('caller_number')
     print(phone)
 
     # Query the certifiate number from the Excel file
